@@ -6,3 +6,12 @@ header
   background-color: #d45a9b;
   height: 150px;
 }
+
+h1
+{
+  color: #ffffff;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding-left: 15px;
+  padding-top: 30px;
+  position: absolute;
+}
