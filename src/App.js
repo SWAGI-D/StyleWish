@@ -107,6 +107,28 @@ function App()
       </body>
     </div>
   );
+
+ function profile_image(e)
+  {
+    let profilePic = document.getElementById("preview");
+    setProfileImage(e.target.files[0]);
+    profilePic.src = URL.createObjectURL(e.target.files[0]);
+  }
+
+  function validateInputs()
+  {
+    const input_list = document.getElementsByClassName('input-control');
+
+    for(var i = 0; i < input_list.length; i++)
+    {
+      if(input_list[i].value.trim() === "")
+      {
+        return false;
+      }
+    }
+
+    return true;
+  }
 }
 
 export default App;
