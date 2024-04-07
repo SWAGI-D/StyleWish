@@ -41,3 +41,21 @@ label {
   font-weight: bold;
   position: absolute;
 }
+
+#fname
+{
+  top: 10px;
+  left: 10px;
+}
+
+#firstname
+{
+  top: 10px;
+  left: 110px;
+}
+
+#lname
+{
+  top: 10px;
+  left: 300px;
+}
