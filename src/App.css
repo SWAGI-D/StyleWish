@@ -103,3 +103,25 @@ label {
   margin-top: 60px;
   margin-left: 770px;
 }
+
+#countryLabel
+{
+  top: 250px;
+  left: 10px;
+  position: absolute;
+}
+
+#country
+{
+  top: 290px;
+  left: 15px;
+  width: 200px;
+  position: absolute;
+}
+
+#styleLabel
+{
+  top: 250px;
+  left: 250px;
+  position: absolute;
+}
