@@ -80,3 +80,26 @@ label {
   left: 750px;
   position: absolute;
 }
+
+#bio
+{
+  top: 50px;
+  left: 10px;
+  position: absolute;
+}
+
+#about
+{
+  top: 90px;
+  left: 15px;
+  width: 500px;
+  position: absolute;
+}
+
+#preview 
+{
+  width: 200px;
+  height: 200px;
+  margin-top: 60px;
+  margin-left: 770px;
+}
