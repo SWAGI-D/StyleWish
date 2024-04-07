@@ -125,3 +125,20 @@ label {
   left: 250px;
   position: absolute;
 }
+
+#selectStyle
+{
+  top: 285px;
+  left: 250px;
+  width: 200px;
+  position: absolute;
+}
+
+#submit
+{
+  top: 275px;
+  left: 460px;
+  width: 210px;
+  position: absolute;
+}
+
