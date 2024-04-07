@@ -10,6 +10,24 @@ function App()
   const [country, setCountry] = useState("");
   const [style, setStyle] = useState("");
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if(!validateInputs())
+    {
+      alert("Please fill all required fields");
+    }
+    else
+    {
+      console.log(
+        firstName,
+        lastName,
+        about,
+        country,
+        style
+      );
+    }
+  }
+
    return (
     <div className="CreateProfile">
       <header className="SiteName">
@@ -101,6 +119,13 @@ function App()
                 <option>Trendy</option>
                 <option>Sporty</option>
               </select>
+
+              <button
+                type="submit"
+                value="Submit"
+                id = "submit"
+                onClick={(e) => handleSubmit(e)}
+              >Submit</button>
               </form>
           </fieldset>
         </div>
