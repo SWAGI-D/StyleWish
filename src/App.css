@@ -15,3 +15,10 @@ h1
   padding-top: 30px;
   position: absolute;
 }
+
+h2
+{
+  color:black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  position: absolute;
+}
