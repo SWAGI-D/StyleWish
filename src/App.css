@@ -32,3 +32,12 @@ input
   font-size: 12px;
   position: absolute;
 }
+
+label {
+  font-size: 15px;
+  padding: 8px;
+  text-align: left;
+  color: #000000;
+  font-weight: bold;
+  position: absolute;
+}
