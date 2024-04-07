@@ -174,3 +174,29 @@ button
   font-size: 16px;
   position: absolute;
 }
+
+fieldset 
+{
+  border: none;
+  top: 220px;
+  position: fixed;
+  width: 100%;
+}
+
+.form_profile
+{
+  top: 155px;
+  position: fixed;
+  width: 100%;
+  padding-left: 15px;
+}
+
+links 
+{
+  color: #ffffff;
+}
+
+body 
+{
+  background: #fff3e3;
+}
