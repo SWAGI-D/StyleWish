@@ -7,6 +7,7 @@ function App()
   const [lastName, setLastName] = useState("");
   const [profileImage, setProfileImage] = useState("");
   const [about, setAbout] = useState("");
+  const [country, setCountry] = useState("");
   const [style, setStyle] = useState("");
 
    return (
@@ -76,6 +77,20 @@ function App()
               ></textarea>
               
               <img src = " " id="preview" />
+
+              <label id = "countryLabel">Country*</label>
+              
+              <input
+                className='input-control'
+                type="text"
+                name="country"
+                id="country"
+                value={country}
+                onChange={(e) =>
+                  setCountry(e.target.value)
+                }
+                placeholder="Enter Your Country"
+              />
 
               <label id = "styleLabel">Style</label>
               
