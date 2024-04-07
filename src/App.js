@@ -5,6 +5,8 @@ function App()
 {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [profileImage, setProfileImage] = useState("");
+  const [about, setAbout] = useState("");
 
    return (
     <div className="CreateProfile">
@@ -44,6 +46,35 @@ function App()
                 }
                 placeholder="Enter Last Name"
               />
+
+                  <label id = "prof">Upload Profile Image</label>
+              
+              <input
+                type="file"
+                name="file"
+                id="file"
+                accept="image/*"
+                onChange={(e) =>
+                  profile_image(e) 
+                }
+                placeholder="Enter Upload File"
+              />
+              
+              <label id = "bio">Bio*</label>
+              
+              <textarea
+                className='input-control'
+                name="about"
+                id="about"
+                cols="30"
+                rows="10"
+                onChange={(e) =>
+                  setAbout(e.target.value)
+                }
+                placeholder="Your personal style statement"
+              ></textarea>
+              
+              <img src = " " id="preview" />
               </form>
           </fieldset>
         </div>
