@@ -22,3 +22,13 @@ h2
   font-family: Georgia, 'Times New Roman', Times, serif;
   position: absolute;
 }
+
+input 
+{
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #050505;
+  border-radius: 3px;
+  font-size: 12px;
+  position: absolute;
+}
