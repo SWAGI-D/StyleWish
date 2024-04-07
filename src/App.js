@@ -7,6 +7,7 @@ function App()
   const [lastName, setLastName] = useState("");
   const [profileImage, setProfileImage] = useState("");
   const [about, setAbout] = useState("");
+  const [style, setStyle] = useState("");
 
    return (
     <div className="CreateProfile">
@@ -75,6 +76,16 @@ function App()
               ></textarea>
               
               <img src = " " id="preview" />
+
+              <label id = "styleLabel">Style</label>
+              
+              <select id = "selectStyle" onChange={(e) => setStyle(e.target.value)}>
+                <option>Classy</option>
+                <option>Chic</option>
+                <option>Casual</option>
+                <option>Trendy</option>
+                <option>Sporty</option>
+              </select>
               </form>
           </fieldset>
         </div>
