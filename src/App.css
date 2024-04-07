@@ -159,3 +159,18 @@ select
   border: 1px solid #ddd;
   border-radius: 5px;
 }
+
+button 
+{
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 320px;
+  margin-top: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  background-color: #d45a9b;
+  width: 20%;
+  font-size: 16px;
+  position: absolute;
+}
