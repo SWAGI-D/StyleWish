@@ -142,3 +142,20 @@ label {
   position: absolute;
 }
 
+textarea 
+{
+  resize: none;
+  width: 50%;
+  min-height: 100px;
+  max-height: 150px;
+}
+
+select 
+{
+  width: 15%;
+  margin-bottom: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
