@@ -33,33 +33,51 @@ input
   position: absolute;
 }
 
-/*added*/
 #title
 {
   top: 140px;
   left: 10px;
 }
 
-/*added*/
 #post_img
 {
   top: -20px;
 }
 
-/*added*/
 #postfile
 {
   left: 170px;
   top: -20px;
 }
 
-/*added*/
 #post_prev
 {
   width: 400px;
   height: 300px;
   margin-top: 30px;
   margin-left: 30px;
+}
+
+#post_title
+{
+  top: -20px;
+  left: 550px;
+  width: 40%;
+}
+
+#post_description
+{
+  top: 50px;
+  left: 500px;
+  min-height: 100px;
+  max-height: 200px;
+}
+
+#upload
+{
+  top: 280px;
+  left: 600px;
+  width: 200px;
 }
 
 label {
