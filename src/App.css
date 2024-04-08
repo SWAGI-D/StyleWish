@@ -23,27 +23,23 @@ h2
   position: absolute;
 }
 
-/*added*/
 #title
 {
   top: 140px;
   left: 10px;
 }
 
-/*added*/
 #post_img
 {
   top: -20px;
 }
 
-/*added*/
 #postfile
 {
   left: 170px;
   top: -20px;
 }
 
-/*added*/
 #post_prev
 {
   width: 400px;
@@ -52,7 +48,6 @@ h2
   margin-left: 30px;
 }
 
-/*added*/
 #post_title
 {
   top: -20px;
@@ -60,7 +55,6 @@ h2
   width: 40%;
 }
 
-/*added*/
 #post_description
 {
   top: 50px;
@@ -69,7 +63,6 @@ h2
   max-height: 200px;
 }
 
-/*added*/
 #upload
 {
   top: 280px;
