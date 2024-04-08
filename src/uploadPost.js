@@ -70,6 +70,13 @@ function UploadPost()
         </body>
       </div>
     );
+
+  function post_image(e)
+  {
+    let postPic = document.getElementById("post_prev");
+    setPostImage(e.target.files[0]);
+    postPic.src = URL.createObjectURL(e.target.files[0]);
+  }
 }
 
 export default UploadPost;
