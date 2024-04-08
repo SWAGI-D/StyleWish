@@ -7,11 +7,16 @@ function UploadPost()
   const [postTitle, setPostTitle] = useState("");
   const [postDescription, setPostDescription] = useState("");
 
+  
+  const handleUpload = async (e) => {
+    e.preventDefault();
+  }
+  
   return(
     <div className="UploadPost">
-      <header className="SiteName">
-        <h1>StyleWish</h1>
-      </header>
+    <header className="SiteName">
+      <h1>StyleWish</h1>
+    </header>
 
       <body>
         <div className="upload_post">
