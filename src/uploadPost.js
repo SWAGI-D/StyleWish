@@ -5,6 +5,7 @@ function UploadPost()
 {
   const [postImage, setPostImage] = useState("");
   const [postTitle, setPostTitle] = useState("");
+  const [postDescription, setPostDescription] = useState("");
 
   return(
     <div className="UploadPost">
@@ -44,6 +45,18 @@ function UploadPost()
                 }
                 placeholder="Enter Post Title"
               />
+
+              <textarea
+                className='input-control'
+                name="post_description"
+                id="post_description"
+                cols="30"
+                rows="20"
+                onChange={(e) =>
+                  setPostDescription(e.target.value)
+                }
+                placeholder="Add what you are looking for, the occasion, the budget, and other details."
+              ></textarea>
           </form>
          </fieldset>
         </div>
