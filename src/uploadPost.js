@@ -57,6 +57,13 @@ function UploadPost()
                 }
                 placeholder="Add what you are looking for, the occasion, the budget, and other details."
               ></textarea>
+
+              <button
+                type="upload"
+                value="Upload"
+                id = "upload"
+                onClick={(e) => handleUpload(e)}
+              >Upload</button>
           </form>
          </fieldset>
         </div>
