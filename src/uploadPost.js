@@ -4,6 +4,7 @@ import { React, useState } from "react";
 function UploadPost() 
 {
   const [postImage, setPostImage] = useState("");
+  const [postTitle, setPostTitle] = useState("");
 
   return(
     <div className="UploadPost">
@@ -32,7 +33,18 @@ function UploadPost()
 
             <img src = " " id="post_prev" />
 
-                  </form>
+            <input
+                className='input-control'
+                type="text"
+                name="post_title"
+                id="post_title"
+                value={postTitle}
+                onChange={(e) =>
+                  setPostTitle(e.target.value)
+                }
+                placeholder="Enter Post Title"
+              />
+          </form>
          </fieldset>
         </div>
         </body>
