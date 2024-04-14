@@ -1,0 +1,124 @@
+header 
+{
+  top: 0px;
+  position: fixed;
+  width: 100%;
+  background-color: #d45a9b;
+  height: 150px;
+}
+
+h1
+{
+  color: #ffffff;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding-left: 15px;
+  padding-top: 30px;
+  position: absolute;
+}
+
+h2
+{
+  color:black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  position: absolute;
+  top: 150px;
+}
+
+#title
+{
+  top: 140px;
+  left: 10px;
+}
+
+#post_img
+{
+  top: -20px;
+}
+
+#postfile
+{
+  left: 170px;
+  top: -20px;
+}
+
+#post_prev
+{
+  width: 400px;
+  height: 300px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+#post_title
+{
+  top: -20px;
+  left: 550px;
+  width: 40%;
+}
+
+#post_description
+{
+  top: 50px;
+  left: 500px;
+  min-height: 100px;
+  max-height: 200px;
+}
+
+#upload
+{
+  top: 280px;
+  left: 600px;
+  width: 200px;
+}
+
+input 
+{
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #050505;
+  border-radius: 3px;
+  font-size: 12px;
+  position: absolute;
+}
+
+label 
+{
+  font-size: 15px;
+  padding: 8px;
+  text-align: left;
+  color: #000000;
+  font-weight: bold;
+  position: absolute;
+}
+
+#fname
+{
+  top: 10px;
+  left: 10px;
+}
+
+#firstName
+{
+  top: 10px;
+  left: 110px;
+}
+
+#lname
+{
+  top: 10px;
+  left: 300px;
+}
+
+#lastname
+{
+  top: 10px;
+  left: 400px;
+}
+
+#prof
+{
+  top: 5px;
+  left: 580px;
+  width: 300px;
+  position: absolute;
+}
