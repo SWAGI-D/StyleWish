@@ -61,6 +61,9 @@ app.post("/create", upload.single("file"), (req, res) => {
   var firstName = req.body.firstName;
   var lastName = req.body.lastName;
   var bio = req.body.bio;
+  var country = req.body.country;
+  var style = req.body.style;
+
 
   
   var data = {
@@ -133,6 +136,3 @@ app.get("/", (req, res) => {
 }).listen(3000);
 
 console.log("Listening on port 3000");
-
-  var country = req.body.country;
-  var style = req.body.style;
