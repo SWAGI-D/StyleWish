@@ -122,3 +122,131 @@ label
   width: 300px;
   position: absolute;
 }
+
+#file
+{
+  top: 5px;
+  left: 750px;
+  position: absolute;
+}
+
+#bioLabel
+{
+  top: 50px;
+  left: 10px;
+  position: absolute;
+}
+
+#bio
+{
+  top: 90px;
+  left: 15px;
+  width: 500px;
+  position: absolute;
+}
+
+#preview 
+{
+  width: 200px;
+  height: 200px;
+  margin-top: 60px;
+  margin-left: 770px;
+}
+
+#countryLabel
+{
+  top: 250px;
+  left: 10px;
+  position: absolute;
+}
+
+#country
+{
+  top: 290px;
+  left: 15px;
+  width: 200px;
+  position: absolute;
+}
+
+#styleLabel
+{
+  top: 250px;
+  left: 250px;
+  position: absolute;
+}
+
+#style
+{
+  top: 285px;
+  left: 250px;
+  width: 200px;
+  position: absolute;
+}
+
+#submit
+{
+  top: 275px;
+  left: 460px;
+  width: 210px;
+  position: absolute;
+}
+
+textarea 
+{
+  resize: none;
+  width: 50%;
+  min-height: 100px;
+  max-height: 150px;
+  position: absolute;
+}
+
+select 
+{
+  width: 15%;
+  margin-bottom: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button 
+{
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 320px;
+  margin-top: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  background-color: #d45a9b;
+  width: 20%;
+  font-size: 16px;
+  position: absolute;
+}
+
+fieldset 
+{
+  border: none;
+  top: 220px;
+  position: fixed;
+  width: 100%;
+}
+
+.form_profile
+{
+  top: 155px;
+  position: fixed;
+  width: 100%;
+  padding-left: 15px;
+}
+
+links 
+{
+  color: #ffffff;
+}
+
+body 
+{
+  background: #fff3e3;
+}
