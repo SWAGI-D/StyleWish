@@ -61,5 +61,78 @@ app.post("/create", upload.single("file"), (req, res) => {
   var firstName = req.body.firstName;
   var lastName = req.body.lastName;
   var bio = req.body.bio;
+
+  
+  var data = {
+    "firstName": firstName,
+    "lastName": lastName,
+    "bio": bio,
+    "country": country,
+    "style": style
+  }
+  
+  db.collection('profiles').insertOne(data, (err, collection) => {
+    if(err)
+    {
+      throw err;
+    }
+    
+    console.log("Record Inserted");
+  })
+  
+  return res.redirect('uploadPost.html') //next page
+})
+
+app.post("/uploadPost", upload.single("file"), (req, res) => {
+  if (!req.file) 
+  {
+    console.log('No file uploaded.');
+  }
+  
+  const image = new Image({
+    filename: req.file.filename,
+    path: req.file.path
+  });
+  
+  try 
+  {
+    image.save();
+    console.log('Image uploaded and saved successfully');
+  } 
+  catch (error) 
+  {
+    console.log(500).send('Error saving image to the database');
+  }
+  
+  var postTitle = req.body.post_title;
+  var postDescription = req.body.post_description;
+  
+  var data = {
+    "postTitle": postTitle,
+    "postDescription": postDescription
+  }
+  
+  db.collection('posts').insertOne(data, (err, collection) => {
+    if(err)
+    {
+      throw err;
+    }
+    
+    console.log("Record Inserted");
+  })
+
+  //return res.redirect('uploadPost.html') //next page
+})
+
+app.get("/", (req, res) => {
+  res.set({
+    "Allow-Access-Allow-Origin" : '*'
+  })
+  
+  return res.redirect('createProfile.html') //html page
+}).listen(3000);
+
+console.log("Listening on port 3000");
+
   var country = req.body.country;
   var style = req.body.style;
