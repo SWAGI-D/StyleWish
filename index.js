@@ -127,15 +127,6 @@ app.post("/uploadPost", upload.single("file"), (req, res) => {
   //return res.redirect('uploadPost.html') //next page
 })
 
-// Add new route for password reset
-app.post('/send-password-reset', (req, res) => {
-    const { email } = req.body;
-    // Implement logic to handle password reset link sending
-    console.log(`Reset link sent to ${email}`);
-    // Here you would typically integrate with an email service provider
-    res.send('Password reset link has been sent to your email address.');
-});
-
 app.get("/", (req, res) => {
   res.set({
     "Allow-Access-Allow-Origin" : '*'
