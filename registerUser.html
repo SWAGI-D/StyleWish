@@ -1,0 +1,53 @@
+<head>
+    <link rel="stylesheet" href= "App.css">
+</head>
+
+<header className="SiteName">
+    <h1>StyleWish</h1>
+</header>
+
+<body>
+    <div className="register">
+        <h2 id="title">New User Registration</h2>
+        <fieldset>
+            <form action="/register" method="POST" enctype="multipart/form-data">
+                <label for="email" id="emLabel">Email</label>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <input
+                    className="input-control"
+                    type="text"
+                    name="email"
+                    id="email"
+                    placeholder="Enter a valid email"
+                    required
+                />
+
+                <br>
+                <br>
+
+                <label for="password" id="pwdlabel">Password</label>
+
+                <input
+                    className="input-control"
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Enter a valid password"
+                    required
+                />
+
+                <button 
+                    type="submit"
+                    value="Submit"
+                    id="submit"
+                    >Submit</button>
+            </form>
+        </fieldset>
+    Hello World
+    </div>
+</body>
