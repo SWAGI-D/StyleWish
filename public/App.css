@@ -191,6 +191,22 @@ label
   position: absolute;
 }
 
+#email
+{
+  top: 275px;
+  left: 460px;
+  width: 210px;
+  position: absolute;
+}
+
+#password
+{
+  top: 285px;
+  left: 250px;
+  width: 200px;
+  position: absolute;
+}
+
 textarea 
 {
   resize: none;
