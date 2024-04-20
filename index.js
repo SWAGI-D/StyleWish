@@ -34,6 +34,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 const User = mongoose.model('User', userSchema);
+
 // User schema and model
 const userSchema = new mongoose.Schema({
     email: String,
@@ -160,7 +161,7 @@ app.post("/uploadPost", upload.single("file"), (req, res) => {
 })
 
 app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname,'public', 'createProfile.html')); // Make sure 'register.html' is the correct file name
+    res.sendFile(path.join(__dirname,'public', 'register.html')); 
 });
 
 app.get('/forgot-password', (req, res) => {
