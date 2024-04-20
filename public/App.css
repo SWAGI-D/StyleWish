@@ -191,19 +191,33 @@ label
   position: absolute;
 }
 
+#emailLabel
+{
+  top: 5px;
+  left: 60px;
+  position:absolute;
+}
+
 #email
 {
-  top: 275px;
-  left: 460px;
+  top: 10px;
+  left: 110px;
   width: 210px;
   position: absolute;
 }
 
+#passwordLabel
+{
+  top: 50px;
+  left: 80px;
+  position:absolute;
+}
+
 #password
 {
-  top: 285px;
-  left: 250px;
-  width: 200px;
+  top: 100px;
+  left: 110px;
+  width: 210px;
   position: absolute;
 }
 
