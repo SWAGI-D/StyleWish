@@ -191,17 +191,22 @@ label
   position: absolute;
 }
 
+#login_page
+{
+  left: 50px;
+}
+
 #emailLabel
 {
   top: 5px;
-  left: 60px;
+  left: 40px;
   position:absolute;
 }
 
 #email
 {
-  top: 10px;
-  left: 110px;
+  top: -4px;
+  left: 70px;
   width: 210px;
   position: absolute;
 }
@@ -209,16 +214,47 @@ label
 #passwordLabel
 {
   top: 50px;
-  left: 80px;
+  left: 35px;
   position:absolute;
 }
 
 #password
 {
-  top: 100px;
-  left: 110px;
+  top: 0px;
+  left: 70px;
   width: 210px;
   position: absolute;
+}
+
+#forgot
+{
+  top: 100px;
+  left: 105px;
+  position:absolute;
+}
+
+#login
+{
+  top: 120px;
+  left: -220px;
+  width: 150px;
+  position:absolute;
+}
+
+#register
+{
+  top: 190px;
+  left: 105px;
+  position:absolute;
+}
+
+#style-art
+{
+  top: 170px;
+  left: 450px;
+  width: 700px;
+  height: 390px;
+  position:absolute; 
 }
 
 textarea 
