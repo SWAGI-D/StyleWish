@@ -32,12 +32,13 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
+const User = mongoose.model('User', userSchema);
 // User schema and model
 const userSchema = new mongoose.Schema({
     email: String,
     password: String
 });
-const User = mongoose.model('User', userSchema);
 
 // POST route for user login
 app.post('/login', async (req, res) => {
@@ -57,6 +58,7 @@ app.post('/login', async (req, res) => {
         res.status(500).send('Internal server error');
     }
 });
+//POST for reset password
 app.post('/send-password-reset', (req, res) => {
     const { email } = req.body;
     // Logic to handle password reset request
