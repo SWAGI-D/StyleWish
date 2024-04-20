@@ -1,8 +1,10 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+var bcrypt = require("bcryptjs"); // hash user passwords
 
 const app = express();
+const path = require('path');
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -30,6 +32,36 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+// User schema and model
+const userSchema = new mongoose.Schema({
+    email: String,
+    password: String
+});
+const User = mongoose.model('User', userSchema);
+
+// POST route for user login
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        // Find the user by email
+        const user = await User.findOne({ email });
+        // If user exists and the password matches the one in the database
+        if (user && bcrypt.compareSync(password, user.password)) {
+            res.send('Login successful');
+        } else {
+            // If credentials are invalid
+            res.status(401).send('Invalid credentials');
+        }
+    } catch (error) {
+        // Handle errors
+        res.status(500).send('Internal server error');
+    }
+});
+app.post('/send-password-reset', (req, res) => {
+    const { email } = req.body;
+    // Logic to handle password reset request
+    res.send('If an account with that email exists, a password reset link will be sent.');
+});
 
 const imageSchema = new mongoose.Schema({
   filename: String,
@@ -47,7 +79,7 @@ app.post("/create", upload.single("file"), (req, res) => {
     filename: req.file.filename,
     path: req.file.path
   });
-  
+
   try 
   {
     image.save();
@@ -63,9 +95,7 @@ app.post("/create", upload.single("file"), (req, res) => {
   var bio = req.body.bio;
   var country = req.body.country;
   var style = req.body.style;
-
-
-  
+ 
   var data = {
     "firstName": firstName,
     "lastName": lastName,
@@ -127,6 +157,13 @@ app.post("/uploadPost", upload.single("file"), (req, res) => {
   //return res.redirect('uploadPost.html') //next page
 })
 
+app.get('/register', (req, res) => {
+    res.sendFile(path.join(__dirname,'public', 'createProfile.html')); // Make sure 'register.html' is the correct file name
+});
+
+app.get('/forgot-password', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'forgotPassword.html'));
+});
 app.get("/", (req, res) => {
   res.set({
     "Allow-Access-Allow-Origin" : '*'
