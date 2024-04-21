@@ -45,22 +45,26 @@ const User = mongoose.model('User', userSchema);
 
 // POST route for user login
 app.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-    try {
-        // Find the user by email
-        const user = await User.findOne({ email });
-        // If user exists and the password matches the one in the database
-        if (user && bcrypt.compareSync(password, user.password)) {
-            res.send('Login successful');
-        } else {
-            // If credentials are invalid
-            res.status(401).send('Invalid credentials');
-        }
-    } catch (error) {
-        // Handle errors
-        res.status(500).send('Internal server error');
-    }
+    const userEmail = req.body.userEmail;
+    const userPassword = req.body.userPassword;
+
+      const userExists = await User.findOne( { email : userEmail });
+
+      console.log(userExists);
+
+      //if (user && bcrypt.compareSync(userPassword, user.password)) 
+      if(userExists.password === userPassword)
+      {
+          return res.redirect("uploadPost.html");
+      } 
+
+      else
+      {
+           res.send("Invalid credentials");
+      }
+
 });
+
 //POST for reset password
 app.post('/send-password-reset', (req, res) => {
     const { email } = req.body;
