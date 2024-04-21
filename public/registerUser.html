@@ -8,21 +8,16 @@
 
 <body>
     <div className="register">
-        <h2 id="title">New User Registration</h2>
+        <h2 id="regTitle">New User Registration</h2>
         <fieldset>
             <form action="/register" method="POST" enctype="multipart/form-data">
                 <label for="email" id="emLabel">Email</label>
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                &nbsp;
+
                 <input
                     className="input-control"
                     type="text"
                     name="email"
-                    id="email"
+                    id="regEmail"
                     placeholder="Enter a valid email"
                     required
                 />
@@ -36,7 +31,7 @@
                     className="input-control"
                     type="password"
                     name="password"
-                    id="password"
+                    id="regPassword"
                     placeholder="Enter a valid password"
                     required
                 />
@@ -44,7 +39,7 @@
                 <button 
                     type="submit"
                     value="Submit"
-                    id="submit"
+                    id="regSubmit"
                     >Submit</button>
             </form>
         </fieldset>
