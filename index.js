@@ -65,6 +65,7 @@ app.post('/login', async (req, res) => {
 
 });
 
+
 //POST for reset password
 app.post('/send-password-reset', (req, res) => {
     const { email } = req.body;
@@ -72,30 +73,39 @@ app.post('/send-password-reset', (req, res) => {
     res.send('If an account with that email exists, a password reset link will be sent.');
 });
 
-app.post('/register', async (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
-  try {
-    const userExists = await User.exists({ email });
-    if(!userExists) {
-      var hashPwd = bcrypt.hashSync(password)
-      var data = {
-        "email": email,
-        "password": hashPwd
+app.post("/registerUser", async (req, res) => {
+  var regEmail = req.body.regEmail;
+  var regPassword = req.body.regPassword;
+
+    const userExists = await User.findOne({ email: regEmail });
+
+    if(userExists === null) 
+    {
+      //var hashPwd = bcrypt.hashSync(password);
+      
+      var data = 
+      {
+        "email": regEmail,
+        "password": regPassword
       }
 
       db.collection('users').insertOne(data, (err, collection) => {
         if(err)
         {
-          console.log(err);
+          throw err;
         }
 
         console.log("new user record inserted");
+
+        return res.redirect("createProfile.html");
       })
     }
-  } catch (error) {
-    res.status(500).send("Internal server error");
-  }
+
+    else{
+      res.send("User Already Exists");
+    }
+
+
 })
 
 const imageSchema = new mongoose.Schema({
@@ -148,7 +158,7 @@ app.post("/create", upload.single("file"), (req, res) => {
     console.log("Record Inserted");
   })
   
-  return res.redirect('uploadPost.html') //next page
+  return res.redirect("login.html") //next page
 })
 
 app.post("/uploadPost", upload.single("file"), (req, res) => {
@@ -200,7 +210,7 @@ app.get("/", (req, res) => {
     "Allow-Access-Allow-Origin" : '*'
   })
   
-  return res.redirect('createProfile.html') //html page
+  return res.redirect("registerUser.html") //html page
 }).listen(3000);
 
 console.log("Listening on port 3000");
