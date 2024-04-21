@@ -13,11 +13,11 @@
 
   <body>  
     <div className="form_profile">
-      <h2 id = "login_page">Login to Your Account</h2>
+      <h2>Login to Your Account</h2>
       <fieldset>
         <form action="/login" method="POST">
             <div className="input-group">
-                <emailLabel for="email" id="emailLabel">Email</label>
+                <emailLabel for="email">Email</label>
                 <input
                     type="email"
                     id="email"
@@ -28,7 +28,7 @@
             </div>
 
             <div className="input-group">
-                <passwordLabel for="password" id="passwordLabel">Password</label>
+                <passwordLabel for="password">Password</label>
                 <input
                     type="password"
                     id="password"
@@ -38,17 +38,13 @@
                 />
             </div>
 
-        <a href="/forgot-password" className="forgot-password" id="forgot">Forgot password?</a>
-        <button type="submit" id="login">Login</button>
+        <a href="/forgot-password" className="forgot-password">Forgot password?</a>
+        <button type="submit">Login</button>
       </form>
       <div className="register-option">
-        <a href="/register" id="register">Don't have an account? Sign up</a>
+        <a href="/register">Don't have an account? Sign up</a>
       </div>
     </div>
-     <div>
-      <img src="../assets/StyleWish.png" id="style-art">
-    </div>
-
 
     <script></script>
   </body>
