@@ -33,13 +33,15 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-const User = mongoose.model('User', userSchema);
+//const User = mongoose.model('User', userSchema);
 
 // User schema and model
 const userSchema = new mongoose.Schema({
     email: String,
     password: String
 });
+
+const User = mongoose.model('User', userSchema);
 
 // POST route for user login
 app.post('/login', async (req, res) => {
@@ -65,6 +67,32 @@ app.post('/send-password-reset', (req, res) => {
     // Logic to handle password reset request
     res.send('If an account with that email exists, a password reset link will be sent.');
 });
+
+app.post('/register', async (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  try {
+    const userExists = await User.exists({ email });
+    if(!userExists) {
+      var hashPwd = bcrypt.hashSync(password)
+      var data = {
+        "email": email,
+        "password": hashPwd
+      }
+
+      db.collection('users').insertOne(data, (err, collection) => {
+        if(err)
+        {
+          console.log(err);
+        }
+
+        console.log("new user record inserted");
+      })
+    }
+  } catch (error) {
+    res.status(500).send("Internal server error");
+  }
+})
 
 const imageSchema = new mongoose.Schema({
   filename: String,
@@ -159,10 +187,6 @@ app.post("/uploadPost", upload.single("file"), (req, res) => {
 
   //return res.redirect('uploadPost.html') //next page
 })
-
-app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname,'public', 'register.html')); 
-});
 
 app.get('/forgot-password', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'forgotPassword.html'));
