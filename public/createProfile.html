@@ -1,40 +1,41 @@
 <head>
-  <link rel="stylesheet" href="App.css" />
+  <link rel = "stylesheet" href = "App.css">
 </head>
 
 <header className="SiteName">
   <h1>StyleWish</h1>
 </header>
-
+    
 <body>
   <div className="form_profile">
     <h2>Create Profile Page</h2>
     <fieldset>
       <form action="/create" method="POST" enctype="multipart/form-data">
+        
         <label id="fname">First Name*</label>
-
+        
         <input
-          className="input-control"
+          className='input-control'
           type="text"
           name="firstName"
           id="firstName"
           placeholder="Enter First Name"
           required
         />
-
-        <label id="lname" className="firstSet">Last Name*</label>
-
+        
+        <label id = "lname" className='firstSet'>Last Name*</label>
+        
         <input
-          className="input-control"
+          className='input-control'
           type="text"
           name="lastName"
           id="lastName"
           placeholder="Enter Last Name"
           required
         />
-
-        <label id="prof">Upload Profile Image</label>
-
+        
+        <label id = "prof">Upload Profile Image</label>
+        
         <input
           type="file"
           name="file"
@@ -42,11 +43,11 @@
           accept="image/*"
           placeholder="Enter Upload File"
         />
-
-        <label id="bioLabel">Bio*</label>
-
+        
+        <label id = "bioLabel">Bio*</label>
+        
         <textarea
-          className="input-control"
+          className='input-control'
           name="bio"
           id="bio"
           cols="30"
@@ -54,58 +55,60 @@
           placeholder="Your personal style statement"
           required
         ></textarea>
-
-        <img src=" " id="preview" />
-
+        
+        <img src = " " id="preview" />
+        
         <script>
           let profilePic = document.getElementById("preview");
           let chosenPic = document.getElementById("file");
-
-          function previewSelectedImage() {
+          
+          function previewSelectedImage() 
+          {
             const chosenFile = chosenPic.files[0];
-            if (chosenFile) {
+            if (chosenFile) 
+            {
               const reader = new FileReader();
               reader.readAsDataURL(chosenFile);
-              reader.onload = function (e) {
+              reader.onload = function(e) 
+              {
                 profilePic.src = e.target.result;
-              };
+              }
             }
-          }
-          chosenPic.addEventListener("change", previewSelectedImage);
+          } 
+          chosenPic.addEventListener('change', previewSelectedImage);
         </script>
-
-        <label id="countryLabel">Country*</label>
-
+        
+        <label id = "countryLabel">Country*</label>
+        
         <input
-          className="input-control"
+          className='input-control'
           type="text"
           name="country"
           id="country"
           placeholder="Enter Your Country"
           required
         />
-
-        <label id="styleLabel">Style</label>
-
-        <select id="style" name="style">
+        
+        <label id = "styleLabel">Style</label>
+        
+           <select id="style" name="style">
+          <option>Classy</option>
+          <option>Chic</option>
+          <option>Casual</option>
+          <option>Trendy</option>
+          <option>Sporty</option>
           <option>Beach</option>
           <option>Bohemian</option>
           <option>Business Casual</option>
-          <option>Casual</option>
-          <option>Chic</option>
-          <option>Classy</option>
-          <option>Cosplay</option>
-          <option>Country</option>          
-          <option>Glamourous</option>
-          <option>Preppy</option>
-          <option>Sporty</option>
-          <option>Trendy</option>
-          <option>Vintage</option>        
+          <option>Country</option>
         </select>
-
         
-
-        <button type="submit" value="Submit" id="submit">Submit</button>
+        <button
+          type="submit"
+          value="Submit"
+          id = "submit"
+        >Submit</button>
+      
       </form>
     </fieldset>
   </div>
