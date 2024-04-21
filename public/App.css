@@ -245,7 +245,7 @@ label
   position:absolute;
 }
 
-#email
+#userEmail
 {
   top: -4px;
   left: 70px;
@@ -260,7 +260,7 @@ label
   position:absolute;
 }
 
-#password
+#userPassword
 {
   top: 0px;
   left: 70px;
