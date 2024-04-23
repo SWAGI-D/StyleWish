@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Feed - StyleWish</title>
+    <link rel="stylesheet" href="App.css">
+</head>
+<body>
+    <header class="SiteName">
+        <h1>StyleWish</h1>
+    </header>
+
+    <div class="form_profile">
+        <h2>Explore Feed</h2>
+        <div id="feed-container">
+            <!-- Posts will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Function to create a post element
+        function createPostElement(post) {
+            const postElement = document.createElement('div');
+            postElement.className = 'feed-item';
+
+            const postImage = document.createElement('img');
+            postImage.src = post.imageUrl;
+            postImage.alt = "User Post Image";
+            postImage.className = 'feed-image';
+            postImage.onclick = function () { redirectToPost(post.id); };
+
+            const textContent = document.createElement('div');
+            textContent.className = 'feed-text-content';
+
+            const postTitle = document.createElement('h3');
+            postTitle.className = 'feed-post-title';
+            postTitle.innerText = post.title;
+
+            const postDescription = document.createElement('p');
+            postDescription.className = 'feed-post-description';
+            postDescription.innerText = post.description;
+
+            const suggestButton = document.createElement('button');
+            suggestButton.innerText = 'Suggest';
+            suggestButton.onclick = function () { suggestForPost(post.id); };
+
+            textContent.appendChild(postTitle);
+            textContent.appendChild(postDescription);
+            textContent.appendChild(suggestButton);
+
+            postElement.appendChild(postImage);
+            postElement.appendChild(textContent);
+
+            return postElement;
+        }
+
+        // Function to fetch and display posts
+        async function displayPosts() {
+            // Placeholder: Replace with actual API call to fetch posts
+            const posts = [
+                {
+                    id: 1,
+                    title: 'Summer Styles',
+                    description: 'Check out these cool summer outfits!',
+                    imageUrl: 'path_to_image1.jpg'
+                },
+                {
+                    id: 2,
+                    title: 'Winter Collection',
+                    description: 'Stay warm and stylish with our winter collection.',
+                    imageUrl: 'path_to_image2.jpg'
+                },
+                {
+                    id: 3,
+                    title: 'Autumn Trends',
+                    description: 'Discover the latest trends for the autumn season.',
+                    imageUrl: 'path_to_image3.jpg'
+                },
+                {
+                    id: 4,
+                    title: 'Spring Novelties',
+                    description: 'Discover the latest Spring arrivals.',
+                    imageUrl: 'path_to_image4.jpg'
+                },
+            ];
+
+            const feedContainer = document.getElementById('feed-container');
+            posts.forEach(post => {
+                const postElement = createPostElement(post);
+                feedContainer.appendChild(postElement);
+            });
+        }
+
+        // Redirect to the post detail view
+        function redirectToPost(postId) {
+            // Implement redirection logic(post details)
+            console.log('Redirecting to post with ID:', postId);
+            // window.location.href = '/post-detail/' + postId; // Un-comment and update with actual path
+        }
+
+        // Handle the suggest button click
+        function suggestForPost(postId) {
+            console.log('Suggest for post with ID:', postId);
+            // Open a suggestion modal or redirect to a suggestion page
+        }
+
+        // Initial call to display posts when page loads
+        displayPosts();
+    </script>
+</body>
+</html>
