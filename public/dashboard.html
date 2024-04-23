@@ -14,7 +14,6 @@
     <div class="form_profile">
         <h2>Explore Feed</h2>
         <div id="feed-container">
-            <!-- Posts will be inserted here by JavaScript -->
         </div>
     </div>
 
@@ -57,7 +56,7 @@
 
         // Function to fetch and display posts
         async function displayPosts() {
-            // Placeholder: Replace with actual API call to fetch posts
+            //!!! Replace with actual API call to fetch posts!!!!
             const posts = [
                 {
                     id: 1,
@@ -91,7 +90,6 @@
                 feedContainer.appendChild(postElement);
             });
         }
-
         // Redirect to the post detail view
         function redirectToPost(postId) {
             // Implement redirection logic(post details)
@@ -102,10 +100,7 @@
         // Handle the suggest button click
         function suggestForPost(postId) {
             console.log('Suggest for post with ID:', postId);
-            // Open a suggestion modal or redirect to a suggestion page
         }
-
-        // Initial call to display posts when page loads
         displayPosts();
     </script>
 </body>
