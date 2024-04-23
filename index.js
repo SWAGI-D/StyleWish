@@ -201,6 +201,19 @@ app.post("/uploadPost", upload.single("file"), (req, res) => {
   //return res.redirect('uploadPost.html') //next page
 })
 
+// Add POST route for post suggestions
+app.post('/post-suggestion', (req, res) => {
+    const { postId, suggestion } = req.body;
+    //save suggestion to the database
+    res.send('Suggestion received');
+});
+
+//GET route to fetch posts for the dashboard
+app.get('/fetch-posts', async (req, res) => {
+    // Logic to fetch posts from the database
+    res.json([]);
+});
+
 app.get('/forgot-password', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'forgotPassword.html'));
 });
