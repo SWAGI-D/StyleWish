@@ -42,6 +42,13 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
+const postSchema = new mongoose.Schema({
+  postTitle: String,
+  postDescription: String
+});
+
+const Post = mongoose.model('Post', postSchema);
+
 // POST route for user login
 app.post('/login', async (req, res) => {
     const userEmail = req.body.userEmail;
@@ -201,6 +208,8 @@ app.post("/uploadPost", upload.single("file"), (req, res) => {
   //return res.redirect('uploadPost.html') //next page
 })
 
+
+
 // Add POST route for post suggestions
 app.post('/post-suggestion', (req, res) => {
     const { postId, suggestion } = req.body;
@@ -209,9 +218,13 @@ app.post('/post-suggestion', (req, res) => {
 });
 
 //GET route to fetch posts for the dashboard
-app.get('/fetch-posts', async (req, res) => {
+app.get("/fetch-posts", async (req, res) => {
     // Logic to fetch posts from the database
-    res.json([]);
+    const data = await Post.find({});
+
+    res.send(data);
+
+    //res.json([]);
 });
 
 app.get('/forgot-password', (req, res) => {
