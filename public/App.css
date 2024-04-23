@@ -299,6 +299,49 @@ label
   position:absolute; 
 }
 
+#reset_title
+{
+  top: -10px;
+  left: 30px;
+  position: absolute;
+}
+
+#reset_para
+{
+  top: 40px;
+  left: 30px;
+  position: absolute;
+}
+
+#resetEmail
+{
+  top: 100px;
+  left: 100px;
+  position: absolute;
+}
+
+#resetLabel
+{
+  top: 100px;
+  left: 30px;
+  position: absolute;
+}
+
+#resetLogin
+{
+  top: 210px;
+  left: 40px;
+  position: absolute;
+}
+
+#res_sub
+{
+  top:150px;
+  left: -280px;
+  width: 200px;
+  position: absolute;
+}
+
 textarea 
 {
   resize: none;
