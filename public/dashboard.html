@@ -12,7 +12,7 @@
     </header>
 
     <div class="form_profile">
-        <h2>Explore Feed</h2>
+        <h2 id="dashboardLabel">Explore Feed</h2>
         <div id="feed-container">
         </div>
     </div>
@@ -34,14 +34,15 @@
 
             const postTitle = document.createElement('h3');
             postTitle.className = 'feed-post-title';
-            postTitle.innerText = post.title;
+            postTitle.innerText = post.postTitle;
 
             const postDescription = document.createElement('p');
             postDescription.className = 'feed-post-description';
-            postDescription.innerText = post.description;
+            postDescription.innerText = post.postDescription;
 
             const suggestButton = document.createElement('button');
             suggestButton.innerText = 'Suggest';
+            suggestButton.id = "suggestionBtn";
             suggestButton.onclick = function () { suggestForPost(post.id); };
 
             textContent.appendChild(postTitle);
@@ -55,39 +56,43 @@
         }
 
         // Function to fetch and display posts
-        async function displayPosts() {
+        async function displayPosts(postData) {
             //!!! Replace with actual API call to fetch posts!!!!
-            const posts = [
-                {
-                    id: 1,
-                    title: 'Summer Styles',
-                    description: 'Check out these cool summer outfits!',
-                    imageUrl: 'path_to_image1.jpg'
-                },
-                {
-                    id: 2,
-                    title: 'Winter Collection',
-                    description: 'Stay warm and stylish with our winter collection.',
-                    imageUrl: 'path_to_image2.jpg'
-                },
-                {
-                    id: 3,
-                    title: 'Autumn Trends',
-                    description: 'Discover the latest trends for the autumn season.',
-                    imageUrl: 'path_to_image3.jpg'
-                },
-                {
-                    id: 4,
-                    title: 'Spring Novelties',
-                    description: 'Discover the latest Spring arrivals.',
-                    imageUrl: 'path_to_image4.jpg'
-                },
-            ];
+            // const posts = [
+            //     {
+            //         id: 1,
+            //         title: 'Summer Styles',
+            //         description: 'Check out these cool summer outfits!',
+            //         imageUrl: 'path_to_image1.jpg'
+            //     },
+            //     {
+            //         id: 2,
+            //         title: 'Winter Collection',
+            //         description: 'Stay warm and stylish with our winter collection.',
+            //         imageUrl: 'path_to_image2.jpg'
+            //     },
+            //     {
+            //         id: 3,
+            //         title: 'Autumn Trends',
+            //         description: 'Discover the latest trends for the autumn season.',
+            //         imageUrl: 'path_to_image3.jpg'
+            //     },
+            //     {
+            //         id: 4,
+            //         title: 'Spring Novelties',
+            //         description: 'Discover the latest Spring arrivals.',
+            //         imageUrl: 'path_to_image4.jpg'
+            //     },
+            // ];
 
             const feedContainer = document.getElementById('feed-container');
-            posts.forEach(post => {
-                const postElement = createPostElement(post);
+
+            console.log(postData);
+
+            postData.forEach((postD) => {
+                const postElement = createPostElement(postD);
                 feedContainer.appendChild(postElement);
+
             });
         }
         // Redirect to the post detail view
@@ -101,7 +106,26 @@
         function suggestForPost(postId) {
             console.log('Suggest for post with ID:', postId);
         }
-        displayPosts();
+
+        var posts = [];
+
+        async function loadPosts()
+        {
+            try{
+            const response = await fetch("/fetch-posts");
+            posts = await response.json();
+            console.log(posts);
+            }
+
+            catch(err)
+            {
+                console.log(err);
+            }
+
+            displayPosts(posts);
+       }
+
+       loadPosts();
     </script>
 </body>
 </html>
