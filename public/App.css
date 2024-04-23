@@ -342,6 +342,26 @@ label
   position: absolute;
 }
 
+#dashboardLabel
+{
+  top: 0px;
+  left: 10px;
+  position: absolute;
+}
+
+#feed-container
+{
+  top: 80px;
+  left: 20px;
+  position: absolute;
+}
+
+#suggestionBtn
+{
+  width: 100px;
+  position: absolute;
+}
+
 textarea 
 {
   resize: none;
@@ -397,6 +417,7 @@ links
   color: #ffffff;
 }
 
-body {
+body 
+{
     background: #fff3e3;
 }
