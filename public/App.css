@@ -7,6 +7,15 @@ header
   height: 150px;
 }
 
+header2 
+{
+  top: 150px;
+  position: fixed;
+  width: 100%;
+  background-color: #d45a9b ;
+  height: 40px;
+}
+
 h1
 {
   color: #ffffff;
@@ -21,12 +30,21 @@ h2
   color:black;
   font-family: Georgia, 'Times New Roman', Times, serif;
   position: absolute;
-  top: 150px;
+  top: 175px;
+}
+
+a.my-button 
+{
+  text-decoration: none;
+  background-color: #d45a9b;
+  color: #ffffff;
+  padding: 10px 30px;
+  border-radius: 3px;
 }
 
 #title
 {
-  top: 140px;
+  top: 200px;
   left: 10px;
 }
 
@@ -117,7 +135,7 @@ label
 
 #regTitle
 {
-  top: 140px;
+  top: 200px;
   left: 60px;
 }
 
@@ -292,11 +310,11 @@ label
 
 #style-art
 {
-  top: 170px;
-  left: 450px;
+  top: 200px;
+  left: 600px;
   width: 700px;
   height: 390px;
-  position:absolute; 
+  position:absolute;
 }
 
 #reset_title
@@ -419,5 +437,7 @@ links
 
 body 
 {
-    background: #fff3e3;
-}
+  padding-top: 600px;
+  background: #fff3e3;
+} 
+  
