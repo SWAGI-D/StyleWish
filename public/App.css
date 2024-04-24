@@ -388,6 +388,13 @@ label
   position: absolute;
 }
 
+#search
+{
+  top: 100px;
+  left: 10px;
+  position: absolute;
+}
+
 textarea 
 {
   resize: none;
