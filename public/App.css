@@ -33,6 +33,14 @@ h2
   top: 175px;
 }
 
+h3
+{
+  color:black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  position: absolute;
+  top: 25px;
+}
+
 a.my-button 
 {
   text-decoration: none;
