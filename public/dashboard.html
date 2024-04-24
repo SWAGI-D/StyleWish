@@ -57,42 +57,13 @@
 
         // Function to fetch and display posts
         async function displayPosts(postData) {
-            //!!! Replace with actual API call to fetch posts!!!!
-            // const posts = [
-            //     {
-            //         id: 1,
-            //         title: 'Summer Styles',
-            //         description: 'Check out these cool summer outfits!',
-            //         imageUrl: 'path_to_image1.jpg'
-            //     },
-            //     {
-            //         id: 2,
-            //         title: 'Winter Collection',
-            //         description: 'Stay warm and stylish with our winter collection.',
-            //         imageUrl: 'path_to_image2.jpg'
-            //     },
-            //     {
-            //         id: 3,
-            //         title: 'Autumn Trends',
-            //         description: 'Discover the latest trends for the autumn season.',
-            //         imageUrl: 'path_to_image3.jpg'
-            //     },
-            //     {
-            //         id: 4,
-            //         title: 'Spring Novelties',
-            //         description: 'Discover the latest Spring arrivals.',
-            //         imageUrl: 'path_to_image4.jpg'
-            //     },
-            // ];
 
-            const feedContainer = document.getElementById('feed-container');
-
-            console.log(postData);
+            var feedContainer = document.getElementById('feed-container');
+            feedContainer.innerHTML = "";
 
             postData.forEach((postD) => {
                 const postElement = createPostElement(postD);
                 feedContainer.appendChild(postElement);
-
             });
         }
         // Redirect to the post detail view
@@ -107,14 +78,24 @@
             console.log('Suggest for post with ID:', postId);
         }
 
-        var posts = [];
+       var posts = [];
+        
+       const searchBtn = document.getElementById("search_btn");
 
-        async function loadPosts()
+       function loadSearchPosts()
+       {
+            const search_keyword = document.getElementById("search").value;
+            loadPosts(search_keyword);
+       }
+
+       searchBtn.addEventListener('click', loadSearchPosts);
+
+        async function loadPosts(searchBy)
         {
-            try{
-            const response = await fetch("/fetch-posts");
-            posts = await response.json();
-            console.log(posts);
+            try
+            {
+                const response = await fetch("/fetch-posts");
+                posts = await response.json();
             }
 
             catch(err)
@@ -122,10 +103,18 @@
                 console.log(err);
             }
 
+            if(searchBy !== "")
+            {
+                posts = posts.filter((postD) => 
+                {
+                    return (postD.postDescription.includes(searchBy) || postD.postTitle.includes(searchBy))
+                });
+            }
             displayPosts(posts);
        }
 
-       loadPosts();
+       loadPosts("");
+
     </script>
 </body>
 </html>
