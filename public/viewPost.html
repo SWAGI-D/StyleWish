@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Post - StyleWish</title>
+    <link rel="stylesheet" href= "App.css">
+</head>
+
+<header className="SiteName">
+    <h1>StyleWish</h1>
+</header>
+
+<body>
+    <div className="viewPost">
+        <h2 id="regTitle">Post by </h2>
+        <form action="/post-suggestion" method="POST">
+            <div class="postContainer">
+                <img>
+                <!--Pull image data from post clicked on-->
+                <p>Image goes here</p>
+            </div>
+            <div class="suggestionContainer">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="suggestion">
+                            <p v-for="items in item" v-text="items"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <textarea type="text" class="input" placeholder="Make a suggestion"
+                        v-model="newItem" @keyup.enter="addItem()"></textarea>
+                        <button v-on:click="addItem()" type="submit">Add Suggestion</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
