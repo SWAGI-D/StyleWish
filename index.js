@@ -23,7 +23,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads');
+    cb(null, 'public');
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + '-' + file.originalname);
@@ -114,31 +114,17 @@ app.post("/registerUser", async (req, res) => {
 
 })
 
-const imageSchema = new mongoose.Schema({
+/*const imageSchema = new mongoose.Schema({
   filename: String,
   path: String,
 });
   
-const Image = mongoose.model('Image', imageSchema);
+const Image = mongoose.model('Image', imageSchema);*/
 
 app.post("/create", upload.single("file"), (req, res) => {
   if (!req.file) 
   {
     console.log('No file uploaded.');
-  }
-  const image = new Image({
-    filename: req.file.filename,
-    path: req.file.path
-  });
-
-  try 
-  {
-    image.save();
-    console.log('Image uploaded and saved successfully');
-  } 
-  catch (error) 
-  {
-    console.log(500).send('Error saving image to the database');
   }
   
   var firstName = req.body.firstName;
@@ -146,16 +132,20 @@ app.post("/create", upload.single("file"), (req, res) => {
   var bio = req.body.bio;
   var country = req.body.country;
   var style = req.body.style;
+  var imageName = req.file.filename;
+  var imagePath = req.file.path;
  
   var data = {
     "firstName": firstName,
     "lastName": lastName,
     "bio": bio,
     "country": country,
-    "style": style
+    "style": style,
+    "imageName": imageName,
+    "imagePath": imagePath
   }
-  
-  db.collection('profiles').insertOne(data, (err, collection) => {
+
+      db.collection('profiles').insertOne(data, (err, collection) => {
     if(err)
     {
       throw err;
@@ -173,27 +163,16 @@ app.post("/uploadPost", upload.single("file"), (req, res) => {
     console.log('No file uploaded.');
   }
   
-  const image = new Image({
-    filename: req.file.filename,
-    path: req.file.path
-  });
-  
-  try 
-  {
-    image.save();
-    console.log('Image uploaded and saved successfully');
-  } 
-  catch (error) 
-  {
-    console.log(500).send('Error saving image to the database');
-  }
-  
   var postTitle = req.body.post_title;
   var postDescription = req.body.post_description;
+  var imageName = req.file.filename;
+  var imagePath = req.file.path;
   
   var data = {
     "postTitle": postTitle,
-    "postDescription": postDescription
+    "postDescription": postDescription,
+    "imageName": imageName,
+    "imagePath": imagePath
   }
   
   db.collection('posts').insertOne(data, (err, collection) => {
@@ -208,7 +187,35 @@ app.post("/uploadPost", upload.single("file"), (req, res) => {
   //return res.redirect('uploadPost.html') //next page
 })
 
+app.post("/makeSuggestion", upload.single("file"), (req, res) => {
+  if (!req.file) 
+  {
+    console.log('No file uploaded.');
+  }
+  
+  var suggestTitle = req.body.suggest_title;
+  var suggestDescription = req.body.suggest_description;
+  var imageName = req.file.filename;
+  var imagePath = req.file.path;
+  
+  var data = {
+    "suggestTitle": suggestTitle,
+    "suggestDescription": suggestDescription,
+    "imageName": imageName,
+    "imagePath": imagePath
+  }
+  
+  db.collection('suggestions').insertOne(data, (err, collection) => {
+    if(err)
+    {
+      throw err;
+    }
+    
+    console.log("Record Inserted");
+  })
 
+  //return res.redirect('uploadPost.html') //next page
+})
 
 // Add POST route for post suggestions
 app.post('/post-suggestion', (req, res) => {
@@ -239,3 +246,4 @@ app.get("/", (req, res) => {
 }).listen(3000);
 
 console.log("Listening on port 3000");
+
