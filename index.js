@@ -56,8 +56,6 @@ app.post('/login', async (req, res) => {
 
       const userExists = await User.findOne( { email : userEmail });
 
-      console.log(userExists);
-
       //if (user && bcrypt.compareSync(userPassword, user.password)) 
       if(userExists.password === userPassword)
       {
