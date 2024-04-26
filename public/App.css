@@ -140,8 +140,16 @@ label
 
 #regTitle
 {
-  top: 200px;
+  top: 160px;
   left: 60px;
+  position: absolute;
+}
+
+#createTitle
+{
+  top: 160px;
+  left: 30px;
+  position: absolute;
 }
 
 #emlabel
@@ -258,7 +266,9 @@ label
 
 #login_page
 {
-  left: 50px;
+  left: 30px;
+  top: 150px;
+  position: absolute;
 }
 
 #emailLabel
