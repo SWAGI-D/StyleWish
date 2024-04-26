@@ -38,3 +38,43 @@
               if (chosenFile) 
               {
                 const reader = new FileReader();
+                reader.readAsDataURL(chosenFile);
+                reader.onload = function(e) 
+                {
+                  postPic.src = e.target.result;
+                }
+              }
+            } 
+            chosenPic.addEventListener('change', previewSelectedImage);
+          </script>
+          
+          <input
+            className='input-control'
+            type="text"
+            name="suggest_title"
+            id="suggest_title"
+            placeholder="Enter Suggestion Title"
+            required
+          />
+          
+          <textarea
+            className='input-control'
+            name="suggest_description"
+            id="suggest_description"
+            cols="30"
+            rows="20"
+            placeholder="Add a suggestion"
+            required
+          ></textarea>
+          
+          <button
+            type="upload"
+            value="Make Suggestion"
+            id = "make"
+          >Make Suggestion</button>
+        
+        </form>
+      </fieldset>
+    </div>
+  </body>
+</html>
