@@ -7,13 +7,10 @@ header
   height: 150px;
 }
 
-header2 
-{
-  top: 150px;
-  position: fixed;
-  width: 100%;
-  background-color: #d45a9b ;
-  height: 40px;
+.header a {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3rem; /* Adjust as needed */
 }
 
 h1
