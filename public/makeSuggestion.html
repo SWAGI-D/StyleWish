@@ -1,0 +1,40 @@
+<html>
+<head>
+    <link rel = "stylesheet" href = "App.css">
+  </head>
+  
+  <header className="SiteName">
+    <h1>StyleWish</h1>
+    <div class="header">
+        <a href="dashboard.html"  id="navigate">Dashboard</a>   
+     </div>
+  </header>
+  
+  <body>
+    <div className="suggest">
+      <h2 id = "suggestLabel">Make Suggestion Page</h2>
+      <fieldset>
+        <form action="/makeSuggestion" method="POST" enctype="multipart/form-data">
+          
+          <label id = "post_suggest_img">Upload Suggestion Image*</label>
+          
+          <input
+            type="file"
+            name="file"
+            id="suggestFile"
+            accept="image/*"
+            placeholder="Enter Upload File"
+          />
+          
+          <img src = " " id="suggest_prev" />
+          
+          <script>
+            let postPic = document.getElementById("suggest_prev");
+            let chosenPic = document.getElementById("suggestFile");
+            
+            function previewSelectedImage() 
+            {
+              const chosenFile = chosenPic.files[0];
+              if (chosenFile) 
+              {
+                const reader = new FileReader();
