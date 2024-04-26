@@ -61,7 +61,7 @@ app.post('/login', async (req, res) => {
       //if (user && bcrypt.compareSync(userPassword, user.password)) 
       if(userExists.password === userPassword)
       {
-          return res.redirect("uploadPost.html");
+          return res.redirect("dashboard.html");
       } 
 
       else
