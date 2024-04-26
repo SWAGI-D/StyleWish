@@ -11,15 +11,12 @@
         <h1>StyleWish</h1>
         <input id="search" name="search" placeholder="Enter keywords..."></input>
         <button id="search_btn" name="search_btn">Search</button>
-        <div class="header">
-            <a href="dashboard.html">Dashboard</a>
-            <a href="uploadPost.html">Upload Post</a>    
-        </div>
+        <a href="uploadPost.html" id="navigate">Upload Post</a>    
     </header>
 
     <div class="form_profile">
         <h2 id="dashboardLabel">Explore Feed</h2>
-        <div id="feed-container">
+        <div id="feed-container" className = "flex">
         </div>
     </div>
 
@@ -30,10 +27,10 @@
             postElement.className = 'feed-item';
 
             const postImage = document.createElement('img');
-            postImage.src = post.imageUrl;
+            postImage.src = `http://localhost:3000/${post.imageName}`;
             postImage.alt = "User Post Image";
             postImage.className = 'feed-image';
-            postImage.onclick = function () { redirectToPost(post.id); };
+            postImage.id = "showPost";
 
             const textContent = document.createElement('div');
             textContent.className = 'feed-text-content';
@@ -72,16 +69,10 @@
                 feedContainer.appendChild(postElement);
             });
         }
-        // Redirect to the post detail view
-        function redirectToPost(postId) {
-            // Implement redirection logic(post details)
-            console.log('Redirecting to post with ID:', postId);
-            // window.location.href = '/post-detail/' + postId; // Un-comment and update with actual path
-        }
 
         // Handle the suggest button click
         function suggestForPost(postId) {
-            console.log('Suggest for post with ID:', postId);
+            window.location.href = "makeSuggestion.html";
         }
 
        var posts = [];
