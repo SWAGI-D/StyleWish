@@ -1,3 +1,4 @@
+
 header 
 {
   top: 0px;
@@ -11,6 +12,21 @@ header
     display: flex;
     justify-content: flex-end;
     margin-right: 3rem; /* Adjust as needed */
+}
+
+#navigate
+{
+  right: 100px;
+  top: 100px;
+  position: absolute;
+  color: #ffffff;
+  font-size: larger;
+}
+
+#showPost
+{
+  height: 200px;
+  width: 200px;
 }
 
 h1
@@ -30,10 +46,11 @@ h2
   top: 175px;
 }
 
-#title
+#uploadLabel
 {
-  top: 200px;
-  left: 10px;
+  top: 140px;
+  left: 30px;
+  position: absolute;
 }
 
 #post_img
@@ -374,10 +391,37 @@ label
   box-shadow: 0px 10px 30px 0px rgb(50 50 50 / 16%);
 }
 
+.flex
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.feed-post-title
+{
+  font-weight: bold;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.feed-post-description
+{
+  text-align: center;
+}
+
+.feed-image
+{
+  left:100px;
+  width: 190px;
+  height: 190px;
+  position: absolute;
+}
+
 #suggestionBtn
 {
   width: 100px;
   position: absolute;
+  right: 20px;
 }
 
 #search
@@ -394,6 +438,54 @@ label
   width: 100px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   position: absolute;
+}
+
+#suggestLabel
+{
+  top: 140px;
+  left: 30px;
+  position: absolute;
+}
+
+#post_suggest_img
+{
+  top: -20px;
+}
+
+#suggestFile
+{
+  left: 210px;
+  top: -20px;
+}
+
+#suggest_prev
+{
+  width: 400px;
+  height: 300px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+#suggest_title
+{
+  top: -20px;
+  left: 550px;
+  width: 40%;
+}
+
+#suggest_description
+{
+  top: 50px;
+  left: 500px;
+  min-height: 100px;
+  max-height: 200px;
+}
+
+#make
+{
+  top: 280px;
+  left: 600px;
+  width: 200px;
 }
 
 textarea 
