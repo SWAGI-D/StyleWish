@@ -43,12 +43,25 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 const postSchema = new mongoose.Schema({
+  userDetail: String,
   postTitle: String,
-  postDescription: String
+  postDescription: String,
+  imageName: String,
+  imagePath: String
 });
 
 const Post = mongoose.model('Post', postSchema);
 
+const suggestionSchema = new mongoose.Schema({
+  postDetail: String,
+  userDetail: String,
+  suggestTitle: String,
+  suggestDescription: String,
+  imageName: String,
+  imagePath: String
+});
+
+const Suggestion = mongoose.model('Suggestion', suggestionSchema);
 // POST route for user login
 app.post('/login', async (req, res) => {
     const userEmail = req.body.userEmail;
@@ -230,6 +243,16 @@ app.get("/fetch-posts", async (req, res) => {
     res.send(data);
 
     //res.json([]);
+});
+
+//GET route to fetch suggestions for view
+app.get("/fetch-suggestions", async (req, res) => {
+  // Logic to fetch posts from the database
+  const data = await Suggestion.find({});
+
+  res.send(data);
+
+  //res.json([]);
 });
 
 app.get('/forgot-password', (req, res) => {
