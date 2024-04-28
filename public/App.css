@@ -382,6 +382,13 @@ label
   position: absolute;
 }
 
+#viewLabel
+{
+  top: 0px;
+  left: 10px;
+  position: absolute;
+}
+
 #feed-container
 {
   top: 50px;
@@ -417,6 +424,9 @@ label
 .feed-post-description
 {
   text-align: center;
+  position: relative;
+  left: 450px;
+  max-width: 300px;
 }
 
 .feed-image
@@ -427,11 +437,27 @@ label
   position: absolute;
 }
 
+.feed-post-user
+{
+  position: relative; 
+  top: -70px; 
+  right: 30px;
+  text-align: right;
+}
+
 #suggestionBtn
 {
   width: 100px;
-  position: absolute;
-  right: 20px;
+  position: relative;
+  left: 750px;
+}
+
+#viewSuggestion
+{
+  width: 100px;
+  position: relative;
+  top: -80px;
+  left: 590px;
 }
 
 #search
@@ -489,6 +515,20 @@ label
   left: 500px;
   min-height: 100px;
   max-height: 200px;
+}
+
+#user_greet
+{
+  top: -150px;
+  left: 20px;
+  position:absolute;
+}
+
+#userGreet
+{
+  top: -120px;
+  left: 20px;
+  position: absolute;
 }
 
 #make
