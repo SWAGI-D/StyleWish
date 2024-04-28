@@ -75,7 +75,23 @@
             value="Make Suggestion"
             id = "make"
           >Make Suggestion</button>
-        
+
+            <script>
+
+            fetch('currentUser.json')
+            .then(res => res.json())
+            .then(data => {
+              document.getElementById("userGreet").innerText = "Hello " + data.username;
+          
+            })
+
+            var postDetails = window.sessionStorage.getItem("postId");
+
+            const hiddenField = document.getElementById("hiddenField");
+            hiddenField.value = postDetails;
+            hiddenField.type = "hidden";
+
+      </script>
         </form>
       </fieldset>
     </div>
