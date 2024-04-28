@@ -27,6 +27,7 @@
             })
  
         </script>
+
         <div id="feed-container" className = "flex">
         </div>
     </div>
@@ -53,6 +54,10 @@
             const postDescription = document.createElement('p');
             postDescription.className = 'feed-post-description';
             postDescription.innerText = post.postDescription;
+
+            const userShow = document.createElement('h5');
+            userShow.className = 'feed-post-user';
+            userShow.innerText = "By: " + post.userDetail;
 
             const viewButton = document.createElement('a');
             viewButton.innerText = 'Click Here View Suggestions';
