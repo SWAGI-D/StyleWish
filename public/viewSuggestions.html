@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Feed - StyleWish</title>
+    <link rel="stylesheet" href="App.css">
+</head>
+<body>
+    <header class="SiteName">
+        <h1>StyleWish</h1>
+        <input id="search" name="search" placeholder="Enter keywords..."></input>
+        <button id="search_btn" name="search_btn">Search</button>
+        <a href="dashboard.html" id="navigate">Dashboard</a>    
+    </header>
+
+    <div class="form_profile">
+        <h2 id="viewLabel">Explore Suggestions</h2>
+        <h4 id = "user_greet" name = "user_greet">Hello </h4>
+        <script>
+
+            fetch('currentUser.json')
+            .then(res => res.json())
+            .then(data => {
+              document.getElementById("user_greet").innerText = "Hello " + data.username;
+          
+            })
+ 
+        </script>
+
+        <div id="feed-container" className = "flex">
+        </div>
+    </div>
+
+    <script>
+
+        const forPost = window.sessionStorage.getItem("viewPostId");
+
+        // Function to create a post element
+        function createSuggestionElement(suggestion) {
+            const suggestionElement = document.createElement('div');
+            suggestionElement.className = 'feed-item';
+
+            const suggestionImage = document.createElement('img');
+            suggestionImage.src = `http://localhost:3000/${suggestion.imageName}`;
+            suggestionImage.alt = "User Post Image";
+            suggestionImage.className = 'feed-image';
+            suggestionImage.id = "showPost";
+
+            const textContent = document.createElement('div');
+            textContent.className = 'feed-text-content';
+
+            const suggestionTitle = document.createElement('h3');
+            suggestionTitle.className = 'feed-post-title';
+            suggestionTitle.innerText = suggestion.suggestTitle;
+
+            const suggestionDescription = document.createElement('p');
+            suggestionDescription.className = 'feed-post-description';
+            suggestionDescription.innerText = suggestion.suggestDescription;
+
+            const userShow = document.createElement('h5');
+            userShow.className = 'feed-post-user';
+            userShow.innerText = "By: " + suggestion.userDetail;
+
+            textContent.appendChild(suggestionTitle);
+            textContent.appendChild(suggestionDescription);
+            textContent.appendChild(userShow);
