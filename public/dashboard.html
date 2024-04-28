@@ -43,14 +43,21 @@
             postDescription.className = 'feed-post-description';
             postDescription.innerText = post.postDescription;
 
+            const viewButton = document.createElement('a');
+            viewButton.innerText = 'Click Here View Suggestions';
+            viewButton.id = "viewSuggestion";
+            viewButton.onclick = function () { viewForPost(post._id); };
+
             const suggestButton = document.createElement('button');
             suggestButton.innerText = 'Suggest';
             suggestButton.id = "suggestionBtn";
-            suggestButton.onclick = function () { suggestForPost(post.id); };
+            suggestButton.onclick = function () { suggestForPost(post._id); };
 
             textContent.appendChild(postTitle);
             textContent.appendChild(postDescription);
+            textContent.appendChild(userShow);
             textContent.appendChild(suggestButton);
+            textContent.appendChild(viewButton);
 
             postElement.appendChild(postImage);
             postElement.appendChild(textContent);
