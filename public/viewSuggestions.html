@@ -65,3 +65,69 @@
             textContent.appendChild(suggestionTitle);
             textContent.appendChild(suggestionDescription);
             textContent.appendChild(userShow);
+
+            suggestionElement.appendChild(suggestionImage);
+            suggestionElement.appendChild(textContent);
+
+            return suggestionElement;
+        }
+
+        // Function to fetch and display posts
+        async function displaySuggestions(suggestionsData) {
+
+            var feedContainer = document.getElementById('feed-container');
+            feedContainer.innerHTML = "";
+
+            suggestionsData.forEach((suggestionsD) => {
+
+                
+
+                if(suggestionsD.postDetail === forPost.toString())
+                {
+                    const suggestionElement = createSuggestionElement(suggestionsD);
+                    console.log(suggestionsD);
+                    feedContainer.appendChild(suggestionElement);
+                }
+            });
+        }
+
+       var suggestions = [];
+        
+       const searchBtn = document.getElementById("search_btn");
+
+       function loadSearchSuggestions()
+       {
+            const search_keyword = document.getElementById("search").value;
+            loadSuggestions(search_keyword);
+       }
+
+       searchBtn.addEventListener('click', loadSearchSuggestions);
+
+        async function loadSuggestions(searchBy)
+        {
+            try
+            {
+                const response = await fetch("/fetch-suggestions");
+                suggestions = await response.json();
+            }
+
+            catch(err)
+            {
+                console.log(err);
+            }
+
+            if(searchBy !== "")
+            {
+                    suggestions = suggestions.filter((suggestionD) => 
+                    {
+                        return (suggestionD.suggestDescription.includes(searchBy) || suggestionD.suggestTitle.includes(searchBy))
+                    });
+            }
+            displaySuggestions(suggestions);
+       }
+
+       loadSuggestions("");
+
+    </script>
+</body>
+</html>
