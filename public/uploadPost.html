@@ -14,6 +14,7 @@
     <h2 id = "uploadLabel">Upload Post Page</h2>
     <fieldset>
       <form action="/uploadPost" method="POST" enctype="multipart/form-data">
+        <h4 id = "userGreet" name = "userGreet">Hello </h4>
         
         <label id = "post_img">Upload Post Image*</label>
         
@@ -71,6 +72,18 @@
           value="Upload"
           id = "upload"
         >Upload</button>
+
+        <script>
+
+              fetch('currentUser.json')
+              .then(res => res.json())
+              .then(data => {
+                document.getElementById("userGreet").innerText = "Hello " + data.username;
+            
+              })
+   
+        </script>
+      
       
       </form>
     </fieldset>
