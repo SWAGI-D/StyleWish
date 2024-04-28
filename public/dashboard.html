@@ -71,7 +71,15 @@
         }
 
         // Handle the suggest button click
+        function viewForPost(viewPostId) {
+            window.sessionStorage.setItem("viewPostId", viewPostId);
+            window.location.href = "viewSuggestions.html";
+        }
+
+
+        // Handle the suggest button click
         function suggestForPost(postId) {
+            window.sessionStorage.setItem("postId", postId);
             window.location.href = "makeSuggestion.html";
         }
 
