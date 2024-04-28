@@ -5,6 +5,8 @@ var mongoose = require("mongoose");
 const app = express();
 const path = require('path');
 
+var currentUser = "";
+
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({
@@ -62,6 +64,7 @@ const suggestionSchema = new mongoose.Schema({
 });
 
 const Suggestion = mongoose.model('Suggestion', suggestionSchema);
+
 // POST route for user login
 app.post('/login', async (req, res) => {
     const userEmail = req.body.userEmail;
@@ -72,6 +75,18 @@ app.post('/login', async (req, res) => {
       //if (user && bcrypt.compareSync(userPassword, user.password)) 
       if(userExists.password === userPassword)
       {
+          const fs = require('fs');
+
+          currentUser = userEmail;
+
+          let loginUser = 
+          { 
+              username: userEmail
+          };
+          
+          let data = JSON.stringify(loginUser);
+          fs.writeFileSync('public/currentUser.json', data);
+
           return res.redirect("dashboard.html");
       } 
 
@@ -173,13 +188,15 @@ app.post("/uploadPost", upload.single("file"), (req, res) => {
   {
     console.log('No file uploaded.');
   }
-  
+
+  var userDetail = currentUser;
   var postTitle = req.body.post_title;
   var postDescription = req.body.post_description;
   var imageName = req.file.filename;
   var imagePath = req.file.path;
   
   var data = {
+    "userDetail": userDetail,
     "postTitle": postTitle,
     "postDescription": postDescription,
     "imageName": imageName,
@@ -199,17 +216,22 @@ app.post("/uploadPost", upload.single("file"), (req, res) => {
 })
 
 app.post("/makeSuggestion", upload.single("file"), (req, res) => {
+
   if (!req.file) 
   {
     console.log('No file uploaded.');
   }
-  
+
+  var postDetail = req.body.hiddenField;
+  var userDetail = currentUser;
   var suggestTitle = req.body.suggest_title;
   var suggestDescription = req.body.suggest_description;
   var imageName = req.file.filename;
   var imagePath = req.file.path;
   
   var data = {
+    "postDetail": postDetail,
+    "userDetail": userDetail,
     "suggestTitle": suggestTitle,
     "suggestDescription": suggestDescription,
     "imageName": imageName,
