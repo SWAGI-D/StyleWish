@@ -16,6 +16,17 @@
 
     <div class="form_profile">
         <h2 id="dashboardLabel">Explore Feed</h2>
+        <h4 id = "user_greet" name = "user_greet">Hello </h4>
+        <script>
+
+            fetch('currentUser.json')
+            .then(res => res.json())
+            .then(data => {
+              document.getElementById("user_greet").innerText = "Hello " + data.username;
+          
+            })
+ 
+        </script>
         <div id="feed-container" className = "flex">
         </div>
     </div>
