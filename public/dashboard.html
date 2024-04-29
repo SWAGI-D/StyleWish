@@ -135,7 +135,8 @@
             {
                 posts = posts.filter((postD) => 
                 {
-                    return (postD.postDescription.includes(searchBy) || postD.postTitle.includes(searchBy))
+                    return (postD.postTitle.toLowerCase().indexOf(searchBy.toLowerCase()) !== -1 || postD.postDescription.toLowerCase().indexOf(searchBy.toLowerCase()) !== -1)
+                    //return (postD.postDescription.includes(searchBy) || postD.postTitle.includes(searchBy))
                 });
             }
             displayPosts(posts);
