@@ -46,17 +46,24 @@ header
   box-shadow: 0px 10px 30px 0px rgb(50 50 50 / 16%);
 }
 
-#memoryImg
+.gameImg
 {
   width: 200px;
   height: 200px;
 }
 
-#memoryLabel
+.gameLabel
 {
   text-align: center;
 }
 
+#quizGame
+{
+  position: absolute;
+  top: 220px;
+  left: 300px;
+  box-shadow: 0px 10px 30px 0px rgb(50 50 50 / 16%);
+}
 #showPost
 {
   height: 200px;
