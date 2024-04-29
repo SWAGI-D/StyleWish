@@ -1,0 +1,53 @@
+body
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #fff3e3;
+}
+
+.wrapper
+{
+    height: 400px;
+    width: 400px;
+    padding: 25px;
+    background: lightpink;
+    border-radius: 10px;
+    align-content: center;
+}
+
+.cards
+{
+    margin-left: -40px;
+}
+
+.cards, .card, .view
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards
+{
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cards .card
+{
+    cursor: pointer;
+    position: relative;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    height: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
+}
+
+.card.shake
+{
+    animation: shake 0.35s ease-in-out;
+}
