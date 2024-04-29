@@ -32,3 +32,47 @@ function matchCards(img1, img2)
                 return shuffleCard();
             }, 1000);
         }
+               cardOne.removeEventListener("click", flipCard);
+        cardTwo.removeEventListener("click", flipCard);
+        cardOne = cardTwo = "";
+        return disableDeck = false;
+    }
+
+    setTimeout(() => {
+        cardOne.classList.add("shake");
+        cardTwo.classList.add("shake");
+    }, 400);
+
+    setTimeout(() => {
+        cardOne.classList.remove("shake", "flip");
+        cardTwo.classList.remove("shake", "flip");
+        cardOne = cardTwo = "";
+        disableDeck = false;
+    }, 1200);
+}
+
+function shuffleCard()
+{
+    matchedCard = 0;
+    cardOne = cardTwo = "";
+    disableDeck = false;
+    let arr = ["bag","belt","dress","hat","heels","pants","shirt","sunglass","bag","belt","dress","hat","heels","pants","shirt","sunglass"];
+    arr = arr.map((a) => ({ sort: Math.random(), value: a }))
+    .sort((a, b) => a.sort - b.sort)
+    .map((a) => a.value); 
+
+    console.log(arr);
+
+    cards.forEach((card, index)=> {
+        card.classList.remove("flip");
+        let ImgTag = card.querySelector(".back-view img");
+        ImgTag.src = `assets/${arr[index]}.png`;
+        card.addEventListener("click", flipCard);
+    });
+}
+
+shuffleCard();
+
+cards.forEach(card => {
+    card.addEventListener("click", flipCard);
+});
