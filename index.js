@@ -126,9 +126,6 @@ app.post("/registerUser", async (req, res) => {
         {
           throw err;
         }
-
-        console.log("new user record inserted");
-
         return res.redirect("createProfile.html");
       })
     }
@@ -176,8 +173,6 @@ app.post("/create", upload.single("file"), (req, res) => {
     {
       throw err;
     }
-    
-    console.log("Record Inserted");
   })
   
   return res.redirect("login.html") //next page
@@ -208,8 +203,6 @@ app.post("/uploadPost", upload.single("file"), (req, res) => {
     {
       throw err;
     }
-    
-    console.log("Record Inserted");
   })
 
   return res.redirect('dashboard.html') //next page
@@ -243,19 +236,10 @@ app.post("/makeSuggestion", upload.single("file"), (req, res) => {
     {
       throw err;
     }
-    
-    console.log("Record Inserted");
   })
 
   return res.redirect('dashboard.html') //next page
 })
-
-// Add POST route for post suggestions
-app.post('/post-suggestion', (req, res) => {
-    const { postId, suggestion } = req.body;
-    //save suggestion to the database
-    res.send('Suggestion received');
-});
 
 //GET route to fetch posts for the dashboard
 app.get("/fetch-posts", async (req, res) => {
@@ -289,4 +273,3 @@ app.get("/", (req, res) => {
 }).listen(3000);
 
 console.log("Listening on port 3000");
-
