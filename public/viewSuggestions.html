@@ -120,7 +120,8 @@
             {
                     suggestions = suggestions.filter((suggestionD) => 
                     {
-                        return (suggestionD.suggestDescription.includes(searchBy) || suggestionD.suggestTitle.includes(searchBy))
+                        return (suggestionD.suggestTitle.toLowerCase().indexOf(searchBy.toLowerCase()) !== -1 || suggestionD.suggestDescription.toLowerCase().indexOf(searchBy.toLowerCase()) !== -1)
+                        //return (suggestionD.suggestDescription.includes(searchBy) || suggestionD.suggestTitle.includes(searchBy))
                     });
             }
             displaySuggestions(suggestions);
