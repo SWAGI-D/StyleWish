@@ -184,8 +184,16 @@ label
 
 #regSubmit
 {
-  top: 200px;
-  left: -280px;
+  top: 120px;
+  left: -190px;
+  width: 100px;
+}
+
+#loginOption
+{
+  left: 140px;
+  top: 400px;
+  position: absolute;
 }
 
 #prof
