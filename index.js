@@ -212,7 +212,7 @@ app.post("/uploadPost", upload.single("file"), (req, res) => {
     console.log("Record Inserted");
   })
 
-  //return res.redirect('uploadPost.html') //next page
+  return res.redirect('dashboard.html') //next page
 })
 
 app.post("/makeSuggestion", upload.single("file"), (req, res) => {
@@ -247,7 +247,7 @@ app.post("/makeSuggestion", upload.single("file"), (req, res) => {
     console.log("Record Inserted");
   })
 
-  //return res.redirect('uploadPost.html') //next page
+  return res.redirect('dashboard.html') //next page
 })
 
 // Add POST route for post suggestions
