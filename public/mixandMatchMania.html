@@ -105,17 +105,17 @@
         <button class="reset-button" onclick="startOver()">Start Over</button>
         <div class="games-container">
             <div class="clothes-container left">
-                <img src="shirt.png" alt="Shirt" class="clothing-item" draggable="true" ondragstart="drag(event)" id="shirt" data-type="shirt">
-                <img src="pants.png" alt="Pants" class="clothing-item" draggable="true" ondragstart="drag(event)" id="pants" data-type="pants">
+                <img src="blouse.png" alt="Blouse" class="clothing-item" draggable="true" ondragstart="drag(event)" id="blouse" data-type="blouse">
+                <img src="trousers.png" alt="Trousers class="clothing-item" draggable="true" ondragstart="drag(event)" id="trousers" data-type="trousers">
                 <img src="skirt.png" alt="Skirt" class="clothing-item" draggable="true" ondragstart="drag(event)" id="skirt" data-type="skirt">
             </div>
             <div id="mannequin" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <!-- Mannequin area where items will be dropped -->
             </div>
             <div class="clothes-container right">
-                <img src="dress.png" alt="Dress" class="clothing-item" draggable="true" ondragstart="drag(event)" id="dress" data-type="dress">
-                <img src="sunglasses.png" alt="Sunglasses" class="clothing-item" draggable="true" ondragstart="drag(event)" id="sunglasses" data-type="sunglasses">
-                <img src="hat.png" alt="Hat" class="clothing-item" draggable="true" ondragstart="drag(event)" id="hat" data-type="hat">
+                <img src="gown.png" alt="Gown" class="clothing-item" draggable="true" ondragstart="drag(event)" id="gown" data-type="gown">
+                <img src="shades.png" alt="Shades" class="clothing-item" draggable="true" ondragstart="drag(event)" id="shades" data-type="shades">
+                <img src="bonnet.png" alt="Bonnet" class="clothing-item" draggable="true" ondragstart="drag(event)" id="bonnet" data-type="bonnet">
                 <img src="shoes.png" alt="Shoes" class="clothing-item" draggable="true" ondragstart="drag(event)" id="shoes" data-type="shoes">
             </div>
         </div>
@@ -138,12 +138,12 @@
 
                 nodeCopy.style.position = "absolute";
                 switch (draggedItem.getAttribute('data-type')) {
-                    case 'shirt':
-                    case 'dress':
+                    case 'blouse':
+                    case 'gown':
                         nodeCopy.style.top = "100px";
                         nodeCopy.style.left = "50px";
                         break;
-                    case 'pants':
+                    case 'trousers':
                         nodeCopy.style.top = "200px";
                         nodeCopy.style.left = "50px";
                         break;
@@ -151,11 +151,11 @@
                         nodeCopy.style.top = "250px";
                         nodeCopy.style.left = "50px";
                         break;
-                    case 'hat':
+                    case 'bonnet':
                         nodeCopy.style.top = "10px";
                         nodeCopy.style.left = "60px";
                         break;
-                    case 'sunglasses':
+                    case 'shades':
                         nodeCopy.style.top = "30px";
                         nodeCopy.style.left = "50px";
                         break;
