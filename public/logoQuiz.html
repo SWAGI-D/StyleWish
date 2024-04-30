@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<link rel="stylesheet" href="logoQuiz.css">
+</head>
+	<title>Style Challenge: Logo Quiz</title>
+<body>
+	<main>
+	<div class="info-container">
+		<h1>Fashion Brand Logo Quiz</h1>
+		<p>Type the name of the brand for each logo. You'll get one point for each correct answer.</p>
+	</div>
+
+	<div class="score-details-container">
+		<p>Score: <span class="score-details" id="score">0</span>/10</p>
+	</div>
+
+	<table class="game-container">
+		<tr>
+			<td>
+				<div class="logo-display-container">
+					<img src="assets/logos/logo1.jpg.webp" class="logo-display">
+				</div>
+
+				<div>
+					<input type="text" class="user-answer" id="user-answer1" onkeyup="checkAnswer(1)">
+				</div>
+			</td>
+
+			<td>
+				<div class="logo-display-container">
+					<img src="assets/logos/logo2.jpg.webp" class="logo-display">
+				</div>
+
+				<div>
+					<input type="text" class="user-answer" id="user-answer2" onkeyup="checkAnswer(2)">
+				</div>
+			</td>
+
+			<td>
+				<div class="logo-display-container">
+					<img src="assets/logos/logo3.jpg.webp" class="logo-display">
+				</div>
+
+				<div>
+					<input type="text" class="user-answer" id="user-answer3" onkeyup="checkAnswer(3)">
+				</div>
+			</td>
+
+		</tr>
+
+		<tr>
+			<td>
+				<div class="logo-display-container">
+					<img src="assets/logos/logo4.jpg.webp" class="logo-display">
+				</div>
+
+				<div>
+					<input type="text" class="user-answer" id="user-answer4" onkeyup="checkAnswer(4)">
+				</div>
+			</td>
+
+			<td>
+				<div class="logo-display-container">
+					<img src="assets/logos/logo5.jpg.webp" class="logo-display">
+				</div>
+
+				<div>
+					<input type="text" class="user-answer" id="user-answer5" onkeyup="checkAnswer(5)">
+				</div>
+			</td>
+
+
+			<td>
+				<div class="logo-display-container">
+					<img src="assets/logos/logo6.jpg.webp" class="logo-display">
+				</div>
+
+				<div>
+					<input type="text" class="user-answer" id="user-answer6" onkeyup="checkAnswer(6)">
+				</div>
+			</td>
+
+		</tr>
+
+		<tr>
+			<td>
+				<div class="logo-display-container">
+					<img src="assets/logos/logo7.jpg.webp" class="logo-display">
+				</div>
+
+				<div>
+					<input type="text" class="user-answer" id="user-answer7" onkeyup="checkAnswer(7)">
+				</div>
+			</td>
+
+
+			<td>
+				<div class="logo-display-container">
+					<img src="assets/logos/logo8.jpg.webp" class="logo-display">
+				</div>
+
+				<div>
+					<input type="text" class="user-answer" id="user-answer8" onkeyup="checkAnswer(8)">
+				</div>
+			</td>
+
+			<td>
+				<div class="logo-display-container">
+					<img src="assets/logos/logo9.jpg.webp" class="logo-display">
+				</div>
+
+				<div>
+					<input type="text" class="user-answer" id="user-answer9" onkeyup="checkAnswer(9)">
+				</div>
+			</td>
+		
+		</tr>
+
+		<tr>
+			<td>
+				<div class="logo-display-container">
+					<img src="assets/logos/logo10.jpg.webp" class="logo-display">
+				</div>
+
+				<div>
+					<input type="text" class="user-answer" id="user-answer10" onkeyup="checkAnswer(10)">
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<div class="btn-container">
+		<button type="button" class="give-up-btn" id="give-up-btn" onclick="giveUp()">Give Up</button>
+		<button type="button" class="reset-btn" id="reset-btn" onclick="reset()">Reset</button>
+	</div>
+
+	</main>
+<script src="logoQuiz.js"></script>
+</body>
+</html>
